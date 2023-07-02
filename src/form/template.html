@@ -1,0 +1,109 @@
+<main class="sign_up_page">
+
+	<aside>
+		Sign up
+	</aside>
+
+	<div class="sign_up_page__content">
+
+		<div class="sign_up_page__title">
+			<h1>
+				New user?
+			</h1>
+			<p>
+				Use the form below to create your account.
+			</p>
+		</div>
+
+		<form class="registration_form">
+
+			<div>
+				<label for="registration_form__first_name">First Name</label>
+				<input id="registration_form__first_name" type="text" value="Alice">
+			</div>
+
+			<div>
+				<label for="registration_form__last_name">Last Name</label>
+				<input id="registration_form__last_name" type="text" value="Miller">
+			</div>
+
+			<div>
+				<label for="registration_form__nationality">Nationality</label>
+				<select id="registration_form__nationality">
+					<option>American</option>
+					<option>Belarusian</option>
+					<option>Ukrainian</option>
+					<option>Mongolian</option>
+					<option>Chinese</option>
+				</select>
+			</div>
+
+			<div>
+				<label for="registration_form__email">E-mail</label>
+				<input id="registration_form__email" type="email" value="alice.miller@yahoo.com">
+			</div>
+
+			<div>
+				<label for="registration_form__birth_date">Date of Birth</label>
+				<div>
+					<select id="registration_form__birth_date">
+						<option>21</option>
+						<option>2</option>
+						<option>3</option>
+						<option>4</option>
+						<option>5</option>
+					</select>
+					<label for="registration_form__birth_month"></label>
+					<select id="registration_form__birth_month">
+						<option>December</option>
+						<option>January</option>
+						<option>February</option>
+						<option>March</option>
+						<option>April</option>
+						<option>May</option>
+					</select>
+					<label for="registration_form__birth_year"></label>
+					<select id="registration_form__birth_year">
+						<option>1995</option>
+						<option>1990</option>
+						<option>1991</option>
+						<option>1992</option>
+						<option>1993</option>
+					</select>
+				</div>
+			</div>
+
+			<div>
+				<p class="registration_form__gender_label">Gender</p>
+
+				<div class="registration_form__gender_div">
+					<div>
+						<input value="male" name="gender" id="registration_form__male" type="radio">
+						<label for="registration_form__male">Male</label>
+					</div>
+					<div>
+						<input value="female" name="gender" id="registration_form__female" type="radio" checked>
+						<label for="registration_form__female">Female</label>
+					</div>
+				</div>
+
+			</div>
+
+			<div>
+				<label for="registration_form__password">Password</label>
+				<input id="registration_form__password" type="password">
+			</div>
+
+			<div>
+				<label for="registration_form__confirm_password">Confirm Password</label>
+				<input id="registration_form__confirm_password" type="password">
+			</div>
+
+		</form>
+
+		<div class="sign_up_page__question">
+			<p>Have an account? <a href="#">Login</a></p>
+			<button>Complete Signup</button>
+		</div>
+	</div>
+</main>

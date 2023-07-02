@@ -1,0 +1,144 @@
+.sign_up_page aside {
+	width: 137px;
+	height: 100%;
+	background-color: var(--form-color-main);
+	color: var(--form-bg-color);
+	font-size: 49.5px;
+	writing-mode: vertical-lr;
+	transform: rotate(180deg);
+	padding: 22.5px 0 0 4px;
+	text-align: left;
+	letter-spacing: 0;
+}
+
+.sign_up_page {
+	font-family: PTSans, sans-serif;
+	width: 665px;
+	height: 480px;
+	background-color: var(--form-bg-color);
+	display: flex;
+
+	&__content {
+		padding: 39px 22px 33px 21px;
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__title {
+		font-family: work-sans, sans-serif;
+		font-weight: 300;
+		text-align: left;
+
+		h1 {
+			font-weight: 400;
+			letter-spacing: 0;
+			font-size: 21.5px;
+		}
+
+		p {
+			font-size: 14px;
+		}
+	}
+
+	&__question {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.registration_form {
+	font-family: work-sans, sans-serif;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 10px;
+	margin-top: 20px;
+
+	div {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 16px;
+
+		label, .registration_form__gender_label {
+			font-size: 12px;
+			color: var(--text-color-secondary);
+			font-weight: 300;
+			margin-bottom: 5px;
+		}
+
+		input[type="text"],
+		input[type="password"],
+		input[type="email"],
+		select{
+			text-align: left;
+			outline: none;
+			font-weight: 500;
+			font-size: 14px;
+			border-bottom: 1px solid var(--input-border-color);
+			font-family: work-sans, sans-serif;
+			padding-bottom: 5px;
+			background-color: transparent;
+		}
+
+		div {
+			display: flex;
+			flex-direction: row;
+			justify-content: flex-start;
+			margin: 0;
+
+			label {
+				margin-bottom: 0;
+			}
+
+			select {
+				flex-grow: 1;
+			}
+		}
+	}
+}
+
+.registration_form__gender_div {
+	gap: 20px;
+
+	div {
+		input {
+			margin-right: 5px;
+		}
+
+		label {
+			font-size: 14px;
+			font-weight: 400;
+			color: var(--text-color-default);
+		}
+	}
+}
+
+.sign_up_page__question {
+	margin-top: auto;
+	font-size: 12.5px;
+	font-weight: 400;
+	font-family: work-sans, sans-serif;
+	align-items: center;
+
+	a {
+		color: var(--form-color-main);
+		text-decoration: underline;
+	}
+
+	button {
+		color: var(--form-bg-color);
+		background-color: var(--form-color-main);
+		font-family: PTSans, sans-serif;
+		font-size: 14px;
+		padding: 6px 25px;
+		cursor: pointer;
+		transition: all linear .2s;
+		border: 1px solid var(--form-color-main);
+	}
+
+	button:hover {
+		background-color: var(--form-bg-color);
+		border: 1px solid var(--form-color-main);
+		color: var(--form-color-main);
+	}
+}

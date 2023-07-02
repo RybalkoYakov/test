@@ -1,0 +1,29 @@
+:root {
+	font-size: 10px;
+	color: var(--text-color-default);
+
+	--body-bg-color: #F4F5FC;
+
+	--form-bg-color: #FFFFFF;
+	--form-color-main: #5A61ED;
+
+	--text-color-default: #111111;
+	--text-color-secondary: #7C7C7C;
+	--text-color-error: #FF2222;
+
+	--input-border-color: #F2F2F2;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--body-bg-color);
+}
