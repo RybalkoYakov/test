@@ -20,9 +20,9 @@ input[type="radio"] {
 	width: 665px;
 	height: 480px;
 	display: flex;
+	background-color: var(--form-bg-color);
 
 	&__content {
-		background-color: var(--form-bg-color);
 		padding: 39px 22px 33px 21px;
 		flex-grow: 1;
 		display: flex;
@@ -89,6 +89,7 @@ input[type="radio"] {
 		input[type="password"]:focus,
 		input[type="email"]:focus {
 			border-bottom: 1px solid var(--form-color-main);
+			position: relative;
 		}
 
 		div {
@@ -166,13 +167,24 @@ input[type="radio"] {
 	opacity: 100%;
 }
 
+.error_input {
+	color: var(--text-color-error);
+	border-bottom: 2px solid var(--text-color-error) !important;
+}
+
+.error_input:focus {
+	border-bottom: 2px solid var(--text-color-error) !important;
+}
+
 @media screen  and (max-width: 570px){
 	.sign_up_page {
 		display: flex;
 		flex-direction: column;
+		min-height: 100%;
 
 		&__content {
 			min-height: fit-content;
+			height: 100%;
 		}
 	}
 
