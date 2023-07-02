@@ -1,3 +1,7 @@
+input[type="radio"] {
+	accent-color: var(--form-color-main);
+}
+
 .sign_up_page aside {
 	width: 137px;
 	height: 100%;
@@ -78,6 +82,13 @@
 			font-family: work-sans, sans-serif;
 			padding-bottom: 5px;
 			background-color: transparent;
+			transition: all linear .2s;
+		}
+
+		input[type="text"]:focus,
+		input[type="password"]:focus,
+		input[type="email"]:focus {
+			border-bottom: 1px solid var(--form-color-main);
 		}
 
 		div {
@@ -141,4 +152,13 @@
 		border: 1px solid var(--form-color-main);
 		color: var(--form-color-main);
 	}
+}
+
+.opacity_zero {
+	opacity: 0;
+	transition: all linear .4s;
+}
+
+.opacity_full {
+	opacity: 100%;
 }
