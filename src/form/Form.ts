@@ -25,12 +25,13 @@ export function form() {
 	const femaleGenderElement = element.querySelector('#registration_form__female') as HTMLInputElement;
 	const passwordElement = element.querySelector('#registration_form__password') as HTMLInputElement;
 	const confirmPasswordElement = element.querySelector('#registration_form__confirm_password') as HTMLInputElement;
+	const submitButton = element.querySelector('.sign_up_page__question button');
 
-	[maleGenderElement, femaleGenderElement].forEach(gender => {
-		gender.addEventListener('input', () => {
-			console.log(gender.value)
-		})
-	})
+	// [maleGenderElement, femaleGenderElement].forEach(gender => {
+	// 	gender.addEventListener('input', () => {
+	// 		console.log(gender.value)
+	// 	})
+	// })
 
 	function setSvgBg() {
 		element.style.backgroundImage = `url(${bgImg})`;

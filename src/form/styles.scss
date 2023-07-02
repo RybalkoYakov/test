@@ -19,10 +19,10 @@ input[type="radio"] {
 	font-family: PTSans, sans-serif;
 	width: 665px;
 	height: 480px;
-	background-color: var(--form-bg-color);
 	display: flex;
 
 	&__content {
+		background-color: var(--form-bg-color);
 		padding: 39px 22px 33px 21px;
 		flex-grow: 1;
 		display: flex;
@@ -145,6 +145,8 @@ input[type="radio"] {
 		cursor: pointer;
 		transition: all linear .2s;
 		border: 1px solid var(--form-color-main);
+		margin-left: 10px;
+		white-space: nowrap;
 	}
 
 	button:hover {
@@ -160,5 +162,25 @@ input[type="radio"] {
 }
 
 .opacity_full {
+	top: 0;
 	opacity: 100%;
+}
+
+@media screen  and (max-width: 570px){
+	.sign_up_page {
+		display: flex;
+		flex-direction: column;
+
+		&__content {
+			min-height: fit-content;
+		}
+	}
+
+	.sign_up_page aside {
+		display: none;
+	}
+
+	.registration_form {
+		grid-template-columns: 1fr;
+	}
 }
