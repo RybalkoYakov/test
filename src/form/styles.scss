@@ -29,6 +29,26 @@ input[type="radio"] {
 		flex-direction: column;
 	}
 
+	&__thanks {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+		margin-left: 45px;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		h1 {
+			font-size: 22px;
+			letter-spacing: 0.76px;
+		}
+
+		p {
+			font-family: work-sans, sans-serif;
+			font-size: 14px;
+		}
+	}
+
 	&__title {
 		font-family: work-sans, sans-serif;
 		font-weight: 300;

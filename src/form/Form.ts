@@ -210,8 +210,17 @@ export function form() {
 			const content = document.createElement('div');
 			content.classList.add('sign_up_page__content');
 
+			const thanksContainer = document.createElement('div');
+			thanksContainer.classList.add('sign_up_page__thanks');
+			const h1 = document.createElement('h1');
+			const message = document.createElement('p');
+			h1.textContent = 'Thank You!'
+			message.textContent = 'you registered!'
+			thanksContainer.append(h1,message);
+
 			const question = document.createElement('div');
 			question.classList.add('sign_up_page__question');
+			question.style.marginBottom = '10px';
 
 			const p =document.createElement('p');
 			p.textContent = 'Have an account? ';
@@ -220,12 +229,11 @@ export function form() {
 			a.href = '#';
 			a.textContent = 'Login';
 
-			content.append(question);
+			content.append(thanksContainer, question);
 			question.append(p);
 			p.append(a);
 
-			element.append(aside);
-			element.append(content);
+			element.append(aside, content);
 		}, 500)
 	}
 
