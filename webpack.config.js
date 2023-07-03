@@ -17,7 +17,8 @@ const config = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
+					template: 'index.html',
+					favicon: path.join(__dirname, 'src', 'assets', 'ui-checks_blue.svg')
         }),
     ],
     module: {
@@ -50,10 +51,7 @@ const config = {
 module.exports = () => {
     if (isProduction) {
         config.mode = 'production';
-        
         config.plugins.push(new MiniCssExtractPlugin());
-        
-        
     } else {
         config.mode = 'development';
     }
