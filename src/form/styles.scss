@@ -13,6 +13,9 @@ input[type="radio"] {
 	padding: 22.5px 0 0 4px;
 	text-align: left;
 	letter-spacing: 0;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .sign_up_page {
@@ -58,10 +61,18 @@ input[type="radio"] {
 			font-weight: 400;
 			letter-spacing: 0;
 			font-size: 21.5px;
+			max-width: 200px;
 		}
 
 		p {
 			font-size: 14px;
+			max-width: 300px;
+		}
+
+		p, h1 {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
 		}
 	}
 
