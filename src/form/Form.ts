@@ -192,7 +192,10 @@ export function form() {
 	}
 
 	function setSvgBg() {
-		element.style.backgroundImage = `url(${bgImg})`;
+		element.style.backgroundImage = `url('${bgImg}')`;
+		const currentBgImg = getComputedStyle(element).backgroundImage;
+		const currQuery = Math.random().toString();
+		element.style.backgroundImage = currentBgImg.replace(/\?.*$/, '') + '?' + currQuery;
 		element.style.backgroundRepeat = `no-repeat`;
 		element.style.backgroundPosition = `bottom right`;
 	}
@@ -272,10 +275,12 @@ export function form() {
 	}
 
 	function init() {
-		setSvgBg();
-		setFadeInAnimation();
-		setListeners();
-		setSelectsStyles();
+		document.addEventListener('DOMContentLoaded', () => {
+			setSvgBg();
+			setFadeInAnimation();
+			setListeners();
+			setSelectsStyles();
+		})
 	}
 
 	return {

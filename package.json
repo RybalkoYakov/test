@@ -2,11 +2,13 @@
   "name": "test-form",
   "version": "1.0.0",
   "description": "Form",
+	"homepage": "https://rybalkoyakov.github.io/test",
   "main": "index.ts",
   "scripts": {
     "build": "webpack --mode=production --node-env=production",
     "build:dev": "webpack --mode=development",
     "build:prod": "webpack --mode=production --node-env=production",
+		"deploy": "gh-pages -d dist",
     "watch": "webpack --watch",
     "serve": "webpack serve"
   },
@@ -16,7 +18,9 @@
   "devDependencies": {
     "@webpack-cli/generators": "^3.0.7",
     "autoprefixer": "^10.4.14",
+    "axios": "^1.4.0",
     "css-loader": "^6.8.1",
+    "gh-pages": "^5.0.0",
     "html-loader": "^4.2.0",
     "html-webpack-plugin": "^5.5.3",
     "mini-css-extract-plugin": "^2.7.6",
@@ -30,7 +34,6 @@
     "vivus": "^0.4.6",
     "webpack": "^5.88.1",
     "webpack-cli": "^5.1.4",
-    "webpack-dev-server": "^4.15.1",
-		"axios": "^1.4.0"
+    "webpack-dev-server": "^4.15.1"
   }
 }
