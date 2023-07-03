@@ -2,8 +2,11 @@ import './styles.scss';
 import template from './form.html';
 import {stringToHTML} from "../utils/stringToHTML";
 import bgImg from './../assets/form_bg_img.svg';
+import selectArrow from './../assets/select_arrow.svg';
 import {IValidateInputProps} from "./IValidateInputProps";
 import {formFilledRight, formFilledWrong} from "../utils/customEvents";
+import {IRequestProps} from "./IRequestProps";
+import axios from "axios";
 
 const FORM_CONSTANTS = {
 	classList: {
@@ -98,6 +101,19 @@ export function form() {
 		else {
 			setTimeout(() => {window.dispatchEvent(formFilledRight)}, 500);
 			registrationComplete();
+			sendRegistrationRequest({
+				firstName,
+				lastName,
+				nationality,
+				email,
+				birthDay: {
+					birthDate,
+					birthMonth,
+					birthYear
+				},
+				gender,
+				password
+			});
 		}
 	}
 
@@ -132,6 +148,7 @@ export function form() {
 		const animationStyle = 'linear'
 
 		if (element) {
+			element.value = '';
 			element.classList.add(FORM_CONSTANTS.classList.errorInput);
 			element.style.animation = `${FORM_CONSTANTS.animations.shake} ${animationDuration} ${animationStyle}`;
 			element.addEventListener(FORM_CONSTANTS.events.animationend, () => {
@@ -237,10 +254,28 @@ export function form() {
 		}, 500)
 	}
 
+	function sendRegistrationRequest(props: IRequestProps) {
+		axios.post('/registration', props)
+			.then(function (response: any) {
+				console.log(response);
+			})
+			.catch(function (error: any) {
+				console.log(error);
+			});
+	}
+
+	function setSelectsStyles() {
+		const selects = element.querySelectorAll('select') as NodeListOf<HTMLSelectElement>;
+		selects.forEach(select => {
+			select.style.background =  `url('${selectArrow}') no-repeat right 8px center`;
+		})
+	}
+
 	function init() {
 		setSvgBg();
 		setFadeInAnimation();
 		setListeners();
+		setSelectsStyles();
 	}
 
 	return {
