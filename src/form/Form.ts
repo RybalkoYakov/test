@@ -3,6 +3,7 @@ import template from './template.html';
 import {stringToHTML} from "../utils/stringToHTML";
 import bgImg from './../assets/form_bg_img.svg';
 import {IValidateInputProps} from "./IValidateInputProps";
+import {formFilledWrong} from "../utils/customEvents";
 
 const FORM_CONSTANTS = {
 	classList: {
@@ -88,10 +89,12 @@ export function form() {
 			reg: validPassword
 		}, submitButton)
 
-
-
-
-
+		if (!validUserPassword || !validEmail || !validLastName || !validFirstName ) {
+			// SET DELAY FOR ERROR ANIMATION //
+			setTimeout(() => {
+				window.dispatchEvent(formFilledWrong);
+			}, 500);
+		}
 	}
 
 	function validateInput(props: IValidateInputProps, button: HTMLButtonElement): string | null {

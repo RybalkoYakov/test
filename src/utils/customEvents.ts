@@ -1,0 +1,1 @@
+export const formFilledWrong = new Event('form_filled_wrong');

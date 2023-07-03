@@ -1,0 +1,51 @@
+.modal_window {
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000040;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+
+	div {
+		width: 250px;
+		height: fit-content;
+		padding: 15px 20px;
+		text-align: justify;
+		background-color: #FFFFFF;
+		border-radius: 5px;
+		display: flex;
+		align-items: center;
+		justify-content: space-around;
+		flex-direction: column;
+
+		p {
+			font-family: PTSans, sans-serif;
+			font-weight: 400;
+			font-size: 14px;
+		}
+
+		button {
+			margin-top: 20px;
+			font-family: PTSans, sans-serif;
+			font-weight: 600;
+			padding: 7px 25px;
+			cursor: pointer;
+			color: var(--form-color-main);
+			background-color: var(--form-bg-color);
+			border: 1px solid var(--form-color-main);
+			transition: all linear .2s;
+		}
+
+		button:hover {
+			color: var(--form-bg-color);
+			background-color: var(--form-color-main);
+			border: 1px solid var(--form-bg-color);
+		}
+	}
+}
+
+.hide__modal_window {
+	display: none;
+}
