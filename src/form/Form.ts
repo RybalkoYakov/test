@@ -1,9 +1,9 @@
 import './styles.scss';
-import template from './template.html';
+import template from './form.html';
 import {stringToHTML} from "../utils/stringToHTML";
 import bgImg from './../assets/form_bg_img.svg';
 import {IValidateInputProps} from "./IValidateInputProps";
-import {formFilledWrong} from "../utils/customEvents";
+import {formFilledRight, formFilledWrong} from "../utils/customEvents";
 
 const FORM_CONSTANTS = {
 	classList: {
@@ -60,6 +60,7 @@ export function form() {
 
 		const maleGender = maleGenderElement.value;
 		const femaleGender = femaleGenderElement.value;
+		const gender = maleGender ? maleGender : femaleGender;
 
 		const validPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{8,}$/;
 		const password = passwordElement.value;
@@ -89,11 +90,14 @@ export function form() {
 			reg: validPassword
 		}, submitButton)
 
-		if (!validUserPassword || !validEmail || !validLastName || !validFirstName ) {
-			// SET DELAY FOR ERROR ANIMATION //
-			setTimeout(() => {
-				window.dispatchEvent(formFilledWrong);
-			}, 500);
+		const isInputsValid = validUserPassword !== null && validUserEmail !== null && validLastName !== null && validFirstName !== null;
+
+		if (!isInputsValid) {
+			setTimeout(() => {window.dispatchEvent(formFilledWrong)}, 500);
+		}
+		else {
+			setTimeout(() => {window.dispatchEvent(formFilledRight)}, 500);
+			registrationComplete();
 		}
 	}
 
@@ -146,12 +150,6 @@ export function form() {
 		}
 	}
 
-	function setSvgBg() {
-		element.style.backgroundImage = `url(${bgImg})`;
-		element.style.backgroundRepeat = `no-repeat`;
-		element.style.backgroundPosition = `bottom right`;
-	}
-
 	function setFadeInAnimation() {
 		const pageContent = element.querySelector('.registration_form');
 		const fadeIinElements = Array.from(pageContent.children) as HTMLDivElement[];
@@ -176,14 +174,59 @@ export function form() {
 		addFadeInClass();
 	}
 
+	function setSvgBg() {
+		element.style.backgroundImage = `url(${bgImg})`;
+		element.style.backgroundRepeat = `no-repeat`;
+		element.style.backgroundPosition = `bottom right`;
+	}
+
+	function resetErrorClass() {
+		[
+			firstNameElement,
+			lastNameElement,
+			emailElement,
+			passwordElement,
+			confirmPasswordElement
+		]
+			.forEach(element => {
+				element.classList.remove(FORM_CONSTANTS.classList.errorInput);
+			})
+	}
+
 	function setListeners() {
 		submitButton.addEventListener(FORM_CONSTANTS.events.click, () => {
+			resetErrorClass();
 			validateForm();
 		});
+	}
 
-		window.addEventListener(FORM_CONSTANTS.events.keydown, (ev: KeyboardEvent) => {
-			if (ev.key === FORM_CONSTANTS.keyCodes.enter) validateForm();
-		})
+	function registrationComplete() {
+		setTimeout(() => {
+			element.replaceChildren();
+
+			const aside = document.createElement('aside');
+			aside.textContent = 'Sign up';
+
+			const content = document.createElement('div');
+			content.classList.add('sign_up_page__content');
+
+			const question = document.createElement('div');
+			question.classList.add('sign_up_page__question');
+
+			const p =document.createElement('p');
+			p.textContent = 'Have an account? ';
+
+			const a = document.createElement('a');
+			a.href = '#';
+			a.textContent = 'Login';
+
+			content.append(question);
+			question.append(p);
+			p.append(a);
+
+			element.append(aside);
+			element.append(content);
+		}, 500)
 	}
 
 	function init() {
